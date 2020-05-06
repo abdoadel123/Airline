@@ -1,0 +1,13 @@
+.intro {
+	display: table;
+	width: 12%;
+	padding: 0;
+	height: 1000px;
+	height: 100%;
+	background-image: url(../img/Home.jpg);
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
