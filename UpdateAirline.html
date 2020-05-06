@@ -24,15 +24,16 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
 	<script>
-		function add() {
+		function update() {
+			var OldCode = document.getElementById('oldcode').value;
 			var Code = document.getElementById('code').value;
-			var Country = document.getElementById('country').value;
-			var City = document.getElementById('city').value;
+			var Name = document.getElementById('name').value;
 
 			var xhttp = new XMLHttpRequest(); // class connect with server ..  b3red al message mn 3'eer ma y3ml reload 
 
-			xhttp.open("GET", "addAirport.php?AirCode=" + Code + "&AirCountry=" + Country + "&AirCity=" + City, true);
+			xhttp.open("GET", "updateAirline.php?Ocode=" + OldCode + "&LineCode=" + Code + "&LineName=" + Name, true);
 			xhttp.send();
 			xhttp.onreadystatechange = function () {
 
@@ -51,25 +52,25 @@
 
 	<style>
 		.button {
-				background-color: rgb(0, 0, 0); /* Green */
-				border: none;
-				color: white;
-				padding: 15px 30px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-	
-			.button5 {
-				background-color: rgba(255, 255, 255, 0.103);
-				color: black;
-				border: 2px solid #000000;
-			}
+					background-color: rgb(0, 0, 0); /* Green */
+					border: none;
+					color: white;
+					padding: 15px 30px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					margin: 4px 2px;
+					cursor: pointer;
+				}
 		
-		</style>
+				.button5 {
+					background-color: rgba(255, 255, 255, 0.103);
+					color: black;
+					border: 2px solid #000000;
+				}
+			
+			</style>
 
 	<script>
 		function GotoHome() {
@@ -95,29 +96,29 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Airport Code</span>
+										<span class="form-label">Old Airline Code</span>
+										<input class="form-control" type="number" placeholder="Old Airline Code" required id="oldcode">
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Airline Code</span>
 										<input class="form-control" type="number" placeholder="AirLine Code" required id="code">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Airport Country</span>
-										<input class="form-control" type="text" placeholder="Country" required id="country">
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Airport City</span>
-										<input class="form-control" type="text" placeholder="City" required id="city">
+										<span class="form-label">Airline Name</span>
+										<input class="form-control" type="text" placeholder="Airline Name" required id="name">
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-3">
 										<div class="form-btn">
-											<button id="add" class="submit-btn" onclick="add();">Add</button>
+											<button id="update" class="submit-btn" onclick="update();">update</button>
 										</div>
 									</div>
 								</div>

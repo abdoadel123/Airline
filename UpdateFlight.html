@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<header>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Add Flight</title>
+	<title>Update Flight</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
@@ -25,8 +25,10 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+
 	<script>
-		function add() {
+		function update() {
+			var Oldnum = document.getElementById('oldnum').value;
 			var from = document.getElementById('from').value;
 			var to = document.getElementById('to').value;
 			var flightnum = document.getElementById('flightnum').value;
@@ -39,7 +41,7 @@
 
 			var xhttp = new XMLHttpRequest(); // class connect with server ..  b3red al message mn 3'eer ma y3ml reload 
 
-			xhttp.open("GET", "addFlight.php?from=" + from + "&to=" + to + "&Flightnumber=" + flightnum + "&DepTime="
+			xhttp.open("GET", "updateFlight.php?ONum=" + Oldnum + "&from=" + from + "&to=" + to + "&Flightnumber=" + flightnum + "&DepTime="
 				+ deptime + "&DepDate=" + depdate + "&ArrTime=" + arrtime + "&ArrDate=" + arrdate + "&cost=" + cost + "&Adminid=" + adminid, true);
 			xhttp.send();
 			xhttp.onreadystatechange = function () {
@@ -81,10 +83,10 @@
 			color: black;
 			border: 2px solid #000000;
 		}
-    
+	
 	</style>
 
-</header>
+</head>
 
 <body>
 	<div id="booking" class="section">
@@ -99,6 +101,14 @@
 					<div class="booking-form">
 						<div>
 							<div class="row">
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Old Flight Number</span>
+										<input id="oldnum" class="form-control" type="number" placeholder="Old Number" required>
+									</div>
+								</div>
+
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">From</span>
@@ -126,7 +136,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">DepDate </span>
 											<input id="depdate" class="form-control" type="date" placeholder="mm/dd/yyyy" required>
@@ -139,7 +149,7 @@
 										</div>
 									</div>
 
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">ArrDate</span>
 											<input id="arrdate" class="form-control" type="date" placeholder="mm/dd/yyyy" required>
@@ -161,7 +171,7 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div class="form-btn">
-											<button id="add" class="submit-btn" onclick="add();">Add</button>
+											<button id="update" class="submit-btn" onclick="update();">update</button>
 										</div>
 									</div>
 								</div>

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Booking Form HTML Template</title>
+	<title>Update Airplane</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
@@ -16,7 +16,7 @@
 	<link type="text/css" rel="stylesheet" href="css/bootstrap2.min.css" />
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/UpdateStyle.css" />
+	<link type="text/css" rel="stylesheet" href="css/Style2.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,15 +24,16 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	<script>
-		function add() {
-			var Code = document.getElementById('code').value;
-			var Country = document.getElementById('country').value;
-			var City = document.getElementById('city').value;
 
+	<script>
+		function update() {
+			var OldRegNum = document.getElementById('oldRgNumber').value;
+			var RegNum = document.getElementById('RgNumber').value;
+			var AirlineCode = document.getElementById('Airlinecode').value;
+			var Seats = document.getElementById('seats').value;
 			var xhttp = new XMLHttpRequest(); // class connect with server ..  b3red al message mn 3'eer ma y3ml reload 
 
-			xhttp.open("GET", "addAirport.php?AirCode=" + Code + "&AirCountry=" + Country + "&AirCity=" + City, true);
+			xhttp.open("GET", "updateAirplane.php?oldRegNum=" + OldRegNum + "&regNum=" + RegNum + "&Airlinecode=" + AirlineCode + "&Seat=" + Seats, true);
 			xhttp.send();
 			xhttp.onreadystatechange = function () {
 
@@ -51,25 +52,25 @@
 
 	<style>
 		.button {
-				background-color: rgb(0, 0, 0); /* Green */
-				border: none;
-				color: white;
-				padding: 15px 30px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-	
-			.button5 {
-				background-color: rgba(255, 255, 255, 0.103);
-				color: black;
-				border: 2px solid #000000;
-			}
-		
-		</style>
+			background-color: rgb(0, 0, 0); /* Green */
+			border: none;
+			color: white;
+			padding: 15px 30px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.button5 {
+			background-color: rgba(255, 255, 255, 0.103);
+			color: black;
+			border: 2px solid #000000;
+		}
+    
+	</style>
 
 	<script>
 		function GotoHome() {
@@ -93,31 +94,38 @@
 						<div>
 							<div class="row">
 
+									<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Old Reg Number</span>
+												<input class="form-control" type="number" placeholder="OldRegNumber" required id="oldRgNumber">
+											</div>
+										</div>
+
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Airport Code</span>
-										<input class="form-control" type="number" placeholder="AirLine Code" required id="code">
+										<span class="form-label">Reg Number</span>
+										<input class="form-control" type="number" placeholder="RegNumber" required id="RgNumber">
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Airport Country</span>
-										<input class="form-control" type="text" placeholder="Country" required id="country">
+										<span class="form-label">AirLine Code</span>
+										<input class="form-control" type="number" placeholder="AirLine Code" required id="Airlinecode">
 									</div>
 								</div>
+
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Airport City</span>
-										<input class="form-control" type="text" placeholder="City" required id="city">
+										<span class="form-label">Seats</span>
+										<input class="form-control" type="number" placeholder="Seats" required id="seats">
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<div class="form-btn">
-											<button id="add" class="submit-btn" onclick="add();">Add</button>
+											<button id="update" class="submit-btn" onclick="update();">Update</button>
 										</div>
 									</div>
 								</div>
